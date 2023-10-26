@@ -2,14 +2,12 @@ import 'package:flutter/material.dart';
 
 class PasswordFormField extends StatelessWidget {
   final String labelText;
-  final String hintText;
   final bool obscureText;
   final VoidCallback onTap;
 
   PasswordFormField(
       {super.key,
       required this.labelText,
-      required this.hintText,
       required this.obscureText,
       required this.onTap});
 
@@ -24,11 +22,13 @@ class PasswordFormField extends StatelessWidget {
           ),
           suffixIcon: GestureDetector(
             onTap: onTap,
-            child: Icon(obscureText ? Icons.visibility_off : Icons.visibility),
+            child: Icon(obscureText ? Icons.visibility_off : Icons.visibility,
+            color: Color.fromRGBO(102, 13, 13, 1)),
           ),
           labelText: labelText,
+          labelStyle: TextStyle(color: Colors.black),
           border: const OutlineInputBorder(
-              borderRadius: BorderRadius.all(Radius.circular(30.0)))),
+              borderRadius: BorderRadius.all(Radius.circular(10.0)))),
     );
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'screens/Login.dart';
+import 'package:midtermproj/routes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,9 +11,18 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Login(),
+      routes: routes, 
+      theme: ThemeData(
+        inputDecorationTheme: InputDecorationTheme(
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Color.fromRGBO(102, 13, 13, 1)),
+          
+          ),
+        )
+      ),
     );
   }
 }

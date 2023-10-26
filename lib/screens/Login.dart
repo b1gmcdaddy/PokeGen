@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:midtermproj/screens/Home.dart';
 import '/components/LoginFormField.dart';
 import '/components/PasswordFormField.dart';
+import '/components/LoginButton.dart';
+import 'package:midtermproj/routes.dart';
 
 class Login extends StatefulWidget {
   static const String routeName = "login";
@@ -18,15 +21,21 @@ class _LoginState extends State<Login> {
       child: Scaffold(
         body: Container(
           alignment: Alignment.topCenter,
-          padding: const EdgeInsets.symmetric(horizontal: 20.0),
+          padding: const EdgeInsets.symmetric(horizontal: 40.0, vertical: 50.0),
           child: SingleChildScrollView(
             child: Column(children: [
+              const Text(
+                "Login to your account",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 25.0,
+                ),
+              ),
               const SizedBox(
                   height: 20.0,
                 ),
-                const LoginFormField(
+                 const LoginFormField(
                     labelText: "Email",
-                    hintText: "Enter a valid email",
                     iconData: Icons.email,
                     textInputType: TextInputType.emailAddress),
                 const SizedBox(
@@ -34,15 +43,19 @@ class _LoginState extends State<Login> {
                 ),
                 PasswordFormField(
                     labelText: "Password",
-                    hintText: "Enter your password",
                     obscureText: obscureText,
                     onTap: setPasswordVisibility,
                 ),
                 const SizedBox(
                   height: 20.0,
                 ),
+                LoginButton(
+                    text: "LOGIN", onPressed: login),
                 const SizedBox(
                   height: 20.0,
+                ),
+                Image(
+                  image: AssetImage('assets/loginimg.png')
                 ),
               ],
             ),
@@ -53,6 +66,9 @@ class _LoginState extends State<Login> {
   }
 
 
+  void login() {
+    Navigator.pushReplacementNamed(context, Home.routeName);
+  }
 
   void setPasswordVisibility() {
     setState(() {
