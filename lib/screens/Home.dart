@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:midtermproj/screens/Settings.dart';
-import 'package:midtermproj/screens/Page2.dart';
+import 'package:midtermproj/screens/Page2Info.dart';
 import 'package:midtermproj/screens/Page3.dart';
 import 'package:midtermproj/screens/Dashboard.dart';
 
@@ -34,7 +34,7 @@ class _HomeState extends State<Home> {
         items: const [
           BottomNavigationBarItem(
               icon: Icon(Icons.dashboard), label: "Dashboard"),
-          BottomNavigationBarItem(icon: Icon(Icons.abc), label: "Page 2"),
+          BottomNavigationBarItem(icon: Icon(Icons.bar_chart_outlined), label: "Info"),
           BottomNavigationBarItem(icon: Icon(Icons.ac_unit), label: "Page 3"),
         ],
         selectedItemColor: const Color.fromRGBO(102, 13, 13, 1),
