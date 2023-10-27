@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:midtermproj/routes.dart';
+import 'package:midtermproj/screens/Settings.dart';
 
 class Home extends StatefulWidget {
   static const String routeName = "Home";
-  const Home({super.key});
 
   @override
   State<Home> createState() => _HomeState();
@@ -20,12 +20,15 @@ class _HomeState extends State<Home> {
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.settings), 
-            onPressed: () {
-
-            },
+            onPressed: goToSettings,
           ),
         ],
       ),
     );
   }
+
+  void goToSettings() {
+  Navigator.pushNamed(context, Settings.routeName);
+}
+
 }
