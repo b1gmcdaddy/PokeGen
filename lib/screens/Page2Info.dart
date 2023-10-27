@@ -11,7 +11,7 @@ class Page2 extends StatelessWidget {
   ];
 
   final List<String> inside = [
-    'Poochyena',
+    'Muk',
     'Squirtle',
     'Pikachu / Charizard',
     'Magikarp',
@@ -36,13 +36,13 @@ class Page2 extends StatelessWidget {
         children: List.generate(desc.length, (index) {
           return GestureDetector(
             onTap: () {
-              _showCardTextModal(context, inside[index]);
+              openModal(context, inside[index]);
             },
             child: Card(
               elevation: 20.0,
               margin: EdgeInsets.all(12.0),
               shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20)),
+                  borderRadius: BorderRadius.circular(20)),
               child: Container(
                 width: 150.0,
                 height: 150.0,
@@ -50,8 +50,7 @@ class Page2 extends StatelessWidget {
                 padding: EdgeInsets.all(30.0),
                 child: Text(
                   desc[index],
-                  style: TextStyle(fontSize: 20.0,
-                  color: Colors.red[800]),
+                  style: TextStyle(fontSize: 20.0, color: Colors.red[800]),
                 ),
               ),
             ),
@@ -61,7 +60,7 @@ class Page2 extends StatelessWidget {
     );
   }
 
-  void _showCardTextModal(BuildContext context, String inside) {
+  void openModal(BuildContext context, String inside) {
     showDialog(
       context: context,
       builder: (context) {

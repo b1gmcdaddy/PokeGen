@@ -35,7 +35,7 @@ class _HomeState extends State<Home> {
           BottomNavigationBarItem(
               icon: Icon(Icons.dashboard), label: "Dashboard"),
           BottomNavigationBarItem(icon: Icon(Icons.bar_chart_outlined), label: "Info"),
-          BottomNavigationBarItem(icon: Icon(Icons.ac_unit), label: "Page 3"),
+          BottomNavigationBarItem(icon: Icon(Icons.summarize_sharp), label: "READMe"),
         ],
         selectedItemColor: const Color.fromRGBO(102, 13, 13, 1),
         currentIndex: pageIndex,
