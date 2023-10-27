@@ -20,14 +20,19 @@ class Settings extends StatelessWidget {
               children: <Widget>[
                 _buildSettingsItem("PokeMaster Mode", Icons.person_2, false),
                 _buildSettingsItem("Invisible Mode", Icons.visibility_off_rounded, false),
-                ListTile(
+                const ListTile(
                   leading: Icon(Icons.settings_suggest),
                   title: Text("Advanced Options"),
-                  trailing: Icon(Icons.keyboard_arrow_right), // Right arrow icon
+                  trailing: Icon(Icons.keyboard_arrow_right), 
                 )
               ],
             ),
           ),
+           Container(
+          margin: EdgeInsets.only(bottom: 60.0), 
+          child: Image.asset('assets/klangIMG.png'), 
+          ),
+
           Container(
             margin: EdgeInsets.only(bottom: 50.0),
             child: Center(
