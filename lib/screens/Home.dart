@@ -37,6 +37,8 @@ class _HomeState extends State<Home> {
           BottomNavigationBarItem(icon: Icon(Icons.abc), label: "Page 2"),
           BottomNavigationBarItem(icon: Icon(Icons.ac_unit), label: "Page 3"),
         ],
+        selectedItemColor: const Color.fromRGBO(102, 13, 13, 1),
+        currentIndex: pageIndex,
         onTap: (index) {
           setState(() {
             pageIndex = index;

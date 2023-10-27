@@ -16,10 +16,9 @@ class MyApp extends StatelessWidget {
       home: Login(),
       routes: routes, 
       theme: ThemeData(
-        inputDecorationTheme: InputDecorationTheme(
+        inputDecorationTheme: const InputDecorationTheme(
           focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Color.fromRGBO(102, 13, 13, 1)),
-          
+            borderSide: BorderSide(color: Color.fromRGBO(102, 13, 13, 1)),  
           ),
         )
       ),
