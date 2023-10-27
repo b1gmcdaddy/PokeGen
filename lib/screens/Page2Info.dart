@@ -39,7 +39,10 @@ class Page2 extends StatelessWidget {
               _showCardTextModal(context, inside[index]);
             },
             child: Card(
+              elevation: 20.0,
               margin: EdgeInsets.all(12.0),
+              shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20)),
               child: Container(
                 width: 150.0,
                 height: 150.0,
@@ -47,7 +50,8 @@ class Page2 extends StatelessWidget {
                 padding: EdgeInsets.all(30.0),
                 child: Text(
                   desc[index],
-                  style: TextStyle(fontSize: 20.0),
+                  style: TextStyle(fontSize: 20.0,
+                  color: Colors.red[800]),
                 ),
               ),
             ),

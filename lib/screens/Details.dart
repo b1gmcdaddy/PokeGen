@@ -26,10 +26,10 @@ class _DetailsState extends State<Details> {
         future: callApiDetails(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return Center(child: CircularProgressIndicator());
+            return const Center(child: CircularProgressIndicator());
           } else if (snapshot.hasData) {
             return GridView.builder(
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
                 crossAxisSpacing: 10.0,
                 mainAxisSpacing: 10.0,
@@ -56,7 +56,7 @@ class _DetailsState extends State<Details> {
                         child: Image.asset(
                           'assets/greatBall.png',
                           width: 50,
-                          height: 50, 
+                          height: 50,
                         ),
                       ),
                     ],
