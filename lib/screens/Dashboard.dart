@@ -11,28 +11,15 @@ class Dashboard extends StatefulWidget {
   State<Dashboard> createState() => _DashboardState();
 }
 
-Future<List<PokemonGeneration>> callApi() async {
-  Response response = await http.get(Uri.parse("https://pokeapi.co/api/v2/generation"));
-  List<PokemonGeneration> generations = [];
-  var data = jsonDecode(response.body);
-  for (var generationJson in data["results"]) {
-    generations.add(PokemonGeneration(
-      name: generationJson["name"],
-      url: generationJson["url"],
-    ));
-  }
-  return generations;
-}
-
 class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
-    Future<List<PokemonGeneration>> generationsFuture = callApi();
-
+    Future<List<PokemonGeneration>> pokeApi = callApi();
+    
     return Scaffold(
       body: Center(
         child: FutureBuilder<List<PokemonGeneration>>(
-          future: generationsFuture,
+          future: pokeApi,
           builder: (context, snapshot) {
             if (snapshot.hasData) {
               return Container(
@@ -91,11 +78,25 @@ class _DashboardState extends State<Dashboard> {
       ),
     );
   }
+
+  Future<List<PokemonGeneration>> callApi() async {
+  Response response = await http.get(Uri.parse("https://pokeapi.co/api/v2/generation"));
+  List<PokemonGeneration> generations = [];
+  var data = jsonDecode(response.body);
+  for(var generationJson in data["results"]){
+    generations.add(PokemonGeneration(
+      name: generationJson["name"],
+      url: generationJson["url"],
+    ));
+  }
+  return generations;
+  }
 }
 
 class PokemonGeneration {
   final String name;
-  final String url;
+  final String url;   //for the Details page
+
   PokemonGeneration({required this.name, required this.url});
 }
 

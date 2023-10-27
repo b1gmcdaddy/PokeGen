@@ -5,7 +5,7 @@ import 'package:midtermproj/screens/Dashboard.dart';
 
 class Details extends StatefulWidget {
   static const String routeName = "Details";
-  final PokemonGeneration generation; 
+  final PokemonGeneration generation;
 
   Details({super.key, required this.generation});
 
@@ -14,25 +14,12 @@ class Details extends StatefulWidget {
 }
 
 class _DetailsState extends State<Details> {
-
-  Future<List<String>> callApiDetails() async {
-    final url = widget.generation.url; 
-    final response = await http.get(Uri.parse(url));
-    final data = jsonDecode(response.body);
-    
-    List<String> genPokemons = [];
-    for (var species in data['pokemon_species']) {
-      genPokemons.add(species['name']);
-    }
-    return genPokemons;
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        backgroundColor: Color.fromRGBO(102, 13, 13, 1),
+        backgroundColor: const Color.fromRGBO(102, 13, 13, 1),
         title: Text("${widget.generation.name.toUpperCase()}'s Pokemons"),
       ),
       body: FutureBuilder<List<String>>(
@@ -41,13 +28,39 @@ class _DetailsState extends State<Details> {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return Center(child: CircularProgressIndicator());
           } else if (snapshot.hasData) {
-            return ListView.builder(
-              itemCount: snapshot.data!.length > 10 ? 10 : snapshot.data?.length,
+            return GridView.builder(
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                crossAxisSpacing: 10.0,
+                mainAxisSpacing: 10.0,
+              ),
+              itemCount: 10,
               itemBuilder: (context, index) {
-                return ListTile(
-                  title: Center(
-                    child: Text(snapshot.data![index].toUpperCase()),
-                )
+                return Card(
+                  margin: const EdgeInsets.all(18.0),
+                  elevation: 5.0,
+                  child: Stack(
+                    children: [
+                      Center(
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(
+                            snapshot.data![index].toUpperCase(),
+                            style: TextStyle(fontSize: 16.0),
+                          ),
+                        ),
+                      ),
+                      Positioned(
+                        bottom: 0,
+                        right: 0,
+                        child: Image.asset(
+                          'assets/greatBall.png',
+                          width: 50,
+                          height: 50, 
+                        ),
+                      ),
+                    ],
+                  ),
                 );
               },
             );
@@ -57,5 +70,17 @@ class _DetailsState extends State<Details> {
         },
       ),
     );
+  }
+
+  Future<List<String>> callApiDetails() async {
+    final url = widget.generation.url; // URL of specific gen to GET list of Pokemon
+    final response = await http.get(Uri.parse(url));
+    final data = jsonDecode(response.body);
+
+    List<String> genPokemons = [];
+    for (var pokemons in data['pokemon_species']) {
+      genPokemons.add(pokemons['name']);
+    }
+    return genPokemons;
   }
 }
