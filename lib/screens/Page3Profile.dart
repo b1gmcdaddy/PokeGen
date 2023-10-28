@@ -31,10 +31,20 @@ class Page3 extends StatelessWidget {
             ),
             SizedBox(height: 10),
             Text(
-              'Road to Passar',
+              'Aspiring Tambay',
               style: TextStyle(
                 fontSize: 16,
               ),
+            ),
+           SizedBox(height: 20),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Icon(
+                  Icons.facebook,
+                  size: 30,
+                ),
+              ],
             ),
           ],
         ),
