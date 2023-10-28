@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:midtermproj/screens/Settings.dart';
 import 'package:midtermproj/screens/Page2Info.dart';
-import 'package:midtermproj/screens/Page3.dart';
+import 'package:midtermproj/screens/Page3Profile.dart';
 import 'package:midtermproj/screens/Dashboard.dart';
 
 class Home extends StatefulWidget {
@@ -34,8 +34,8 @@ class _HomeState extends State<Home> {
         items: const [
           BottomNavigationBarItem(
               icon: Icon(Icons.dashboard), label: "Dashboard"),
-          BottomNavigationBarItem(icon: Icon(Icons.bar_chart_outlined), label: "Info"),
-          BottomNavigationBarItem(icon: Icon(Icons.summarize_sharp), label: "READMe"),
+          BottomNavigationBarItem(icon: Icon(Icons.bar_chart_outlined), label: "Stats"),
+          BottomNavigationBarItem(icon: Icon(Icons.account_circle_rounded), label: "Profile"),
         ],
         selectedItemColor: const Color.fromRGBO(102, 13, 13, 1),
         currentIndex: pageIndex,

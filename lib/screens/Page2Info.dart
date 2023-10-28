@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Page2 extends StatelessWidget {
+  
   final List<String> desc = [
     'Lucky Pokemon of the Day',
     'Unlucky Pokemon of the Day',
