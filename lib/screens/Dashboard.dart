@@ -15,7 +15,7 @@ class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
     Future<List<PokemonGeneration>> pokeApi = callApi();
-    
+
     return Scaffold(
       body: Center(
         child: FutureBuilder<List<PokemonGeneration>>(
@@ -30,11 +30,15 @@ class _DashboardState extends State<Dashboard> {
                     const Text(
                       "List of Pokemon Generations",
                       style: TextStyle(
-                        fontSize: 24, 
+                        fontSize: 24,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    SizedBox(height: 10), 
+                    const SizedBox(
+                      height: 10.0,
+                    ),
+                    Text("Click to see Pokemon from each gen"),
+                    SizedBox(height: 10),
                     Expanded(
                       child: ListView.builder(
                         itemCount: snapshot.data!.length,
@@ -80,23 +84,23 @@ class _DashboardState extends State<Dashboard> {
   }
 
   Future<List<PokemonGeneration>> callApi() async {
-  Response response = await http.get(Uri.parse("https://pokeapi.co/api/v2/generation"));
-  List<PokemonGeneration> generations = [];
-  var data = jsonDecode(response.body);
-  for(var generationJson in data["results"]){
-    generations.add(PokemonGeneration(
-      name: generationJson["name"],
-      url: generationJson["url"],
-    ));
-  }
-  return generations;
+    Response response =
+        await http.get(Uri.parse("https://pokeapi.co/api/v2/generation"));
+    List<PokemonGeneration> generations = [];
+    var data = jsonDecode(response.body);
+    for (var generationJson in data["results"]) {
+      generations.add(PokemonGeneration(
+        name: generationJson["name"],
+        url: generationJson["url"],
+      ));
+    }
+    return generations;
   }
 }
 
 class PokemonGeneration {
   final String name;
-  final String url;   //for the Details page
+  final String url; //for the Details page
 
   PokemonGeneration({required this.name, required this.url});
 }
-

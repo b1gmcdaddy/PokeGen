@@ -127,9 +127,9 @@ class Page3 extends StatelessWidget {
               ),
             ),
             SizedBox(height: 10),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(20.0, 0, 20.0, 0),
-              child: const Text(
+            const Padding(
+              padding: EdgeInsets.fromLTRB(20.0, 0, 20.0, 0),
+              child: Text(
                 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Varius quam quisque id diam vel quam elementum pulvinar. Ante metus dictum at tempor commodo ullamcorper a. Egestas egestas fringilla phasellus faucibus. Viverra suspendisse potenti nullam ac tortor vitae purus. Duis tristique sollicitudin nibh sit. Neque gravida in fermentum et sollicitudin. Sollicitudin nibh sit amet commodo. Consequat interdum varius sit amet mattis vulputate enim nulla aliquet. Eu sem integer vitae justo. Fames ac turpis egestas integer eget aliquet nibh praesent. Nec tincidunt praesent semper feugiat nibh sed pulvinar proin gravida. Diam in arcu cursus euismod quis viverra.',
                 textAlign: TextAlign.justify,
                 style: TextStyle(
